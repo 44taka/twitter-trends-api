@@ -3,7 +3,7 @@ package usecase
 import (
 	"net/http"
 
-	usecase "github.com/44taka/twitter-trends/usecase/twitter"
+	usecase "github.com/44taka/twitter-trends-api/usecase/twitter"
 	"github.com/gin-gonic/gin"
 )
 

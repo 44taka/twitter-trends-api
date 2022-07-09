@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/44taka/twitter-trends/domain/model"
+	"github.com/44taka/twitter-trends-api/domain/model"
 	"github.com/gin-gonic/gin"
 )
 

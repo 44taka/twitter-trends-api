@@ -8,8 +8,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/44taka/twitter-trends/domain/model"
-	"github.com/44taka/twitter-trends/infrastructure"
+	"github.com/44taka/twitter-trends-api/domain/model"
+	"github.com/44taka/twitter-trends-api/infrastructure"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )

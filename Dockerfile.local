@@ -13,7 +13,7 @@ RUN echo "deb https://packagecloud.io/golang-migrate/migrate/ubuntu/ bionic main
 RUN apt update && \
     apt install -y migrate
 
-RUN mkdir -p /go/src/github.com/44taka/twitter-trends
+RUN mkdir -p /go/src/github.com/44taka/twitter-trends-api
 
 # TODO:go installに変更する。
 RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
@@ -36,4 +36,4 @@ RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
   github.com/golang-migrate/migrate
 RUN go install github.com/golang/mock/mockgen@latest
 
-WORKDIR /go/src/github.com/44taka/ç
+WORKDIR /go/src/github.com/44taka

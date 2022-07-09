@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/44taka/twitter-trends/domain/model"
-	"github.com/44taka/twitter-trends/mocks"
+	"github.com/44taka/twitter-trends-api/domain/model"
+	"github.com/44taka/twitter-trends-api/mocks"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"

@@ -11,10 +11,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/44taka/twitter-trends/domain/model"
-	"github.com/44taka/twitter-trends/infrastructure"
-	"github.com/44taka/twitter-trends/infrastructure/persistence"
-	"github.com/44taka/twitter-trends/usecase"
+	"github.com/44taka/twitter-trends-api/domain/model"
+	"github.com/44taka/twitter-trends-api/infrastructure"
+	"github.com/44taka/twitter-trends-api/infrastructure/persistence"
+	"github.com/44taka/twitter-trends-api/usecase"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )

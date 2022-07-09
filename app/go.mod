@@ -1,4 +1,4 @@
-module github.com/44taka/twitter-trends
+module github.com/44taka/twitter-trends-api
 
 go 1.17
 
@@ -7,9 +7,9 @@ require (
 	github.com/golang-migrate/migrate v3.5.4+incompatible
 	github.com/golang/mock v1.6.0
 	github.com/joho/godotenv v1.4.0
-	github.com/stretchr/testify v1.7.2
+	github.com/stretchr/testify v1.8.0
 	gorm.io/driver/postgres v1.3.7
-	gorm.io/gorm v1.23.5
+	gorm.io/gorm v1.23.7
 )
 
 require (

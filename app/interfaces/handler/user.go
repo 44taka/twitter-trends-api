@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"github.com/44taka/twitter-trends/interfaces/validator"
-	"github.com/44taka/twitter-trends/usecase"
+	"github.com/44taka/twitter-trends-api/interfaces/validator"
+	"github.com/44taka/twitter-trends-api/usecase"
 	"github.com/gin-gonic/gin"
 )
 

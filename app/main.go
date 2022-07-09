@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/44taka/twitter-trends/infrastructure"
-	persistence_twitter "github.com/44taka/twitter-trends/infrastructure/persistence/twitter"
-	handler_twitter "github.com/44taka/twitter-trends/interfaces/handler/twitter"
-	usecase_twitter "github.com/44taka/twitter-trends/usecase/twitter"
+	"github.com/44taka/twitter-trends-api/infrastructure"
+	persistence_twitter "github.com/44taka/twitter-trends-api/infrastructure/persistence/twitter"
+	handler_twitter "github.com/44taka/twitter-trends-api/interfaces/handler/twitter"
+	usecase_twitter "github.com/44taka/twitter-trends-api/usecase/twitter"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )

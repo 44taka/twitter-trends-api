@@ -7,7 +7,7 @@ package mocks
 import (
 	reflect "reflect"
 
-	model "github.com/44taka/twitter-trends/domain/model"
+	model "github.com/44taka/twitter-trends-api/domain/model"
 	gin "github.com/gin-gonic/gin"
 	gomock "github.com/golang/mock/gomock"
 )

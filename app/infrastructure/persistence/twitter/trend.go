@@ -3,8 +3,8 @@ package persistence
 import (
 	"errors"
 
-	model "github.com/44taka/twitter-trends/domain/model/twitter"
-	repository "github.com/44taka/twitter-trends/domain/repository/twitter"
+	model "github.com/44taka/twitter-trends-api/domain/model/twitter"
+	repository "github.com/44taka/twitter-trends-api/domain/repository/twitter"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
