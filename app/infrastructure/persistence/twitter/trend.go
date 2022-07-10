@@ -2,6 +2,7 @@ package persistence
 
 import (
 	"errors"
+	"time"
 
 	model "github.com/44taka/twitter-trends-api/domain/model/twitter"
 	repository "github.com/44taka/twitter-trends-api/domain/repository/twitter"
@@ -24,4 +25,19 @@ func (ttp twitterTrendPersistence) FindAll(ctx *gin.Context) ([]*model.TwitterTr
 		return twitter_trends, errors.New("twitter trends are not found")
 	}
 	return twitter_trends[:10], nil
+}
+
+func (ttp twitterTrendPersistence) Find(ctx *gin.Context, startDateTime time.Time, endDateTime time.Time) ([]*model.TwitterTrend, error) {
+	const layout = "2006-01-02 15:04:05"
+	twitter_trends := []*model.TwitterTrend{}
+	r := ttp.conn.
+		Where("created_at >= ?", startDateTime.Format(layout)).
+		Where("created_at < ?", endDateTime.Format(layout)).
+		Order("created_at desc").
+		Order("rank").
+		Find(&twitter_trends)
+	if r.Error != nil {
+		return twitter_trends, errors.New("twitter trends are not found")
+	}
+	return twitter_trends, nil
 }

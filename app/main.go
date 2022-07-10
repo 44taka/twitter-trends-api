@@ -25,7 +25,8 @@ func main() {
 
 	r := gin.Default()
 
-	r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.FindAll(ctx) })
+	// r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.FindAll(ctx) })
+	r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.Find(ctx) })
 
 	// MEMO: CRUDのエンドポイントのサンプルとして残しておく
 	// ハンドラー読み込み

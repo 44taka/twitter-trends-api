@@ -1,13 +1,17 @@
 package model
 
-import "time"
-
 type TwitterTrend struct {
-	ID          int       `json:"id"`
-	Rank        int       `json:"rank"`
-	Name        string    `json:"name"`
-	Url         string    `json:"url"`
-	TweetVolume int       `json:"tweet_volume"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
+	ID          int    `json:"id,omitempty"`
+	Rank        int    `json:"rank,omitempty"`
+	Name        string `json:"name,omitempty"`
+	Url         string `json:"url,omitempty"`
+	TweetVolume int    `json:"tweet_volume,omitempty"`
+	// CreatedAt   time.Time `json:"created_at,omitempty"`
+	// UpdatedAt   time.Time `json:"updated_at,omitempty"`
+}
+
+type TwitterTrendResult struct {
+	// Label  string         `json:"label"`
+	// Time   string         `json:"time"`
+	Result []TwitterTrend `json:"result"`
 }
