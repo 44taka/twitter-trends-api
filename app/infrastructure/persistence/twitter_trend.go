@@ -17,6 +17,15 @@ func NewTwitterTrendPersistence(conn *gorm.DB) repository.TwitterTrendRepository
 	return &twitterTrendPersistence{conn: conn}
 }
 
+func (ttp twitterTrendPersistence) Find(ctx *gin.Context) ([]*model.TwitterTrend, error) {
+	twitter_trends := []*model.TwitterTrend{}
+	r := ttp.conn.Find(&twitter_trends)
+	if r.Error != nil {
+		return twitter_trends, errors.New("twitter trends are not found")
+	}
+	return twitter_trends[:10], nil
+}
+
 func (ttp twitterTrendPersistence) FindAll(ctx *gin.Context) ([]*model.TwitterTrend, error) {
 	twitter_trends := []*model.TwitterTrend{}
 	r := ttp.conn.Find(&twitter_trends)

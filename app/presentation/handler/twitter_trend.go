@@ -8,6 +8,7 @@ import (
 )
 
 type TwitterTrendHandler interface {
+	Find(ctx *gin.Context)
 	FindAll(ctx *gin.Context)
 }
 
@@ -19,6 +20,19 @@ func NewTwitterTrendHandler(ttu usecase.TwitterTrendUseCase) TwitterTrendHandler
 	return &twitterTrendHandler{
 		twitterTrendUseCase: ttu,
 	}
+}
+
+func (tth twitterTrendHandler) Find(ctx *gin.Context) {
+	result, err := tth.twitterTrendUseCase.Find(ctx)
+	if err != nil {
+		ctx.JSON(http.StatusNotFound, gin.H{
+			"message": "not found user",
+			"result":  nil,
+		})
+		return
+	}
+	ctx.JSON(http.StatusOK, result)
+	return
 }
 
 func (tth twitterTrendHandler) FindAll(ctx *gin.Context) {

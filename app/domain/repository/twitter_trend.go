@@ -6,5 +6,6 @@ import (
 )
 
 type TwitterTrendRepository interface {
+	Find(ctx *gin.Context) ([]*model.TwitterTrend, error)
 	FindAll(ctx *gin.Context) ([]*model.TwitterTrend, error)
 }
