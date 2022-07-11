@@ -30,7 +30,7 @@ func (ttp twitterTrendPersistence) Find(ctx *gin.Context, startDateTime time.Tim
 	if r.Error != nil {
 		return twitter_trends, errors.New("twitter trends are not found")
 	}
-	return twitter_trends[:10], nil
+	return twitter_trends, nil
 }
 
 func (ttp twitterTrendPersistence) FindAll(ctx *gin.Context) ([]*model.TwitterTrend, error) {
@@ -39,5 +39,5 @@ func (ttp twitterTrendPersistence) FindAll(ctx *gin.Context) ([]*model.TwitterTr
 	if r.Error != nil {
 		return twitter_trends, errors.New("twitter trends are not found")
 	}
-	return twitter_trends[:10], nil
+	return twitter_trends, nil
 }
