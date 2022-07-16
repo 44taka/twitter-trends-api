@@ -22,5 +22,8 @@ RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
   github.com/joho/godotenv
 RUN go install github.com/golang/mock/mockgen@latest
 
+COPY ./app /go/src/github.com/44taka/twitter-trends-api
+WORKDIR /go/src/github.com/44taka/twitter-trends-api
+
 RUN go build main.go
 ENTRYPOINT ["./main"]
