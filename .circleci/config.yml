@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  deploy:
+    machine:
+      image: ubuntu-2204:2022.04.1
+    steps:
+      - checkout
+      - run:
+          name: Git remote remote dokku
+          command: | 
+            git remote add dokku dokku@dosankoweb.work:twitter-trends-api
+      - run:
+          name: Git push dokku
+          command: | 
+            git push dokku main:master
+
+workflows:
+  Deploy:
+    jobs: 
+      - deploy:
+          filters:
+            branches:
+              only:
+                - main

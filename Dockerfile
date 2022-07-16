@@ -1,13 +1,5 @@
 FROM golang:1.17-bullseye
 
-# RUN apt update && \
-#     apt install -y \
-#     apt-transport-https \
-#     ca-certificates \
-#     curl \
-#     gnupg-agent \
-#     netcat
-
 RUN mkdir -p /go/src/github.com/44taka/twitter-trends-api
 
 RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
@@ -30,4 +22,5 @@ RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
   github.com/joho/godotenv
 RUN go install github.com/golang/mock/mockgen@latest
 
-WORKDIR /go/src/github.com/44taka
+RUN go build main.go
+ENTRYPOINT ["./main"]
