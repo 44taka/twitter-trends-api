@@ -9,15 +9,9 @@ import (
 	"github.com/44taka/twitter-trends-api/usecase"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	// envファイル読み込み
-	err := godotenv.Load(".env")
-	if err != nil {
-		panic(err)
-	}
 	// コンフィグ読み込み
 	config := infrastructure.NewConfig()
 	db := infrastructure.NewDB(config)
