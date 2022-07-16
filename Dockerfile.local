@@ -12,6 +12,7 @@ RUN mkdir -p /go/src/github.com/44taka/twitter-trends-api
 
 RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
   github.com/gin-gonic/gin \
+  github.com/gin-contrib/cors \
   github.com/cosmtrek/air \
   gorm.io/gorm \
   gorm.io/driver/postgres \

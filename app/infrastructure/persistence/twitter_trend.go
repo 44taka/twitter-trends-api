@@ -26,6 +26,7 @@ func (ttp twitterTrendPersistence) Find(ctx *gin.Context, startDateTime time.Tim
 		Where("created_at < ?", endDateTime.Format(layout)).
 		Order("created_at desc").
 		Order("rank").
+		Limit(50).
 		Find(&twitter_trends)
 	if r.Error != nil {
 		return twitter_trends, errors.New("twitter trends are not found")
