@@ -8,16 +8,11 @@ RUN apt update && \
     gnupg-agent \
     netcat
 
-RUN curl -sSL https://packagecloud.io/golang-migrate/migrate/gpgkey | apt-key add -
-RUN echo "deb https://packagecloud.io/golang-migrate/migrate/ubuntu/ bionic main" > /etc/apt/sources.list.d/migrate.list
-RUN apt update && \
-    apt install -y migrate
+RUN mkdir -p /go/src/github.com/44taka/twitter-trends-api
 
-RUN mkdir -p /go/src/github.com/44taka/twitter-trends
-
-# TODO:go installに変更する。
 RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
   github.com/gin-gonic/gin \
+  github.com/gin-contrib/cors \
   github.com/cosmtrek/air \
   gorm.io/gorm \
   gorm.io/driver/postgres \
@@ -32,8 +27,7 @@ RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
   golang.org/x/lint/golint \
   golang.org/x/tools/gopls \
   github.com/stretchr/testify \
-  github.com/joho/godotenv \
-  github.com/golang-migrate/migrate
+  github.com/joho/godotenv
 RUN go install github.com/golang/mock/mockgen@latest
 
-WORKDIR /go/src/github.com/44taka/ç
+WORKDIR /go/src/github.com/44taka

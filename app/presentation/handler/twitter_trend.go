@@ -1,13 +1,14 @@
-package usecase
+package handler
 
 import (
 	"net/http"
 
-	usecase "github.com/44taka/twitter-trends/usecase/twitter"
+	"github.com/44taka/twitter-trends-api/usecase"
 	"github.com/gin-gonic/gin"
 )
 
 type TwitterTrendHandler interface {
+	Find(ctx *gin.Context)
 	FindAll(ctx *gin.Context)
 }
 
@@ -19,6 +20,19 @@ func NewTwitterTrendHandler(ttu usecase.TwitterTrendUseCase) TwitterTrendHandler
 	return &twitterTrendHandler{
 		twitterTrendUseCase: ttu,
 	}
+}
+
+func (tth twitterTrendHandler) Find(ctx *gin.Context) {
+	result, err := tth.twitterTrendUseCase.Find(ctx)
+	if err != nil {
+		ctx.JSON(http.StatusNotFound, gin.H{
+			"message": "not found user",
+			"result":  nil,
+		})
+		return
+	}
+	ctx.JSON(http.StatusOK, result)
+	return
 }
 
 func (tth twitterTrendHandler) FindAll(ctx *gin.Context) {
