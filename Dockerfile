@@ -1,5 +1,7 @@
 FROM golang:1.17-bullseye
 
+ENV TZ Asia/Tokyo
+
 RUN mkdir -p /go/src/github.com/44taka/twitter-trends-api
 
 RUN go get -u github.com/uudashr/gopkgs/v2/cmd/gopkgs \
