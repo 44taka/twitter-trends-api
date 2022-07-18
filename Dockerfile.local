@@ -1,12 +1,6 @@
 FROM golang:1.17-bullseye
 
-# RUN apt update && \
-#     apt install -y \
-#     apt-transport-https \
-#     ca-certificates \
-#     curl \
-#     gnupg-agent \
-#     netcat
+ENV TZ Asia/Tokyo
 
 RUN mkdir -p /go/src/github.com/44taka/twitter-trends-api
 

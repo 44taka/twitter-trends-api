@@ -1,8 +1,6 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/44taka/twitter-trends-api/infrastructure"
 	"github.com/44taka/twitter-trends-api/infrastructure/persistence"
 	"github.com/44taka/twitter-trends-api/presentation/handler"
@@ -31,10 +29,5 @@ func main() {
 
 	// r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.FindAll(ctx) })
 	r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.Find(ctx) })
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
 	r.Run(":" + config.Routing.Port)
 }

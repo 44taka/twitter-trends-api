@@ -37,7 +37,8 @@ func NewTwitterTrendUseCase(ttr repository.TwitterTrendRepository) TwitterTrendU
 func (ttu twitterTrendUseCase) Find(ctx *gin.Context) (TwitterTrendResponse, error) {
 	var twitter_trend_response TwitterTrendResponse
 
-	nowDate := time.Date(time.Now().Year(), time.Now().Month(), 9, 10, 0, 0, 0, time.UTC)
+	now := time.Now()
+	nowDate := time.Date(now.Year(), now.Month(), now.Day(), now.Hour(), 0, 0, 0, time.Local)
 	for _, n := range [...]int{0, 1, 3} {
 		var twitter_trend_result TwitterTrendResult
 
