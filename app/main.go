@@ -29,8 +29,8 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	// r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.FindAll(ctx) })
-	r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.Find(ctx) })
+	r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.FindAll(ctx) })
+	// r.GET("/twitter/trends", func(ctx *gin.Context) { twitterTrendHandler.Find(ctx) })
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",

@@ -36,7 +36,11 @@ func (ttp twitterTrendPersistence) Find(ctx *gin.Context, startDateTime time.Tim
 
 func (ttp twitterTrendPersistence) FindAll(ctx *gin.Context) ([]*model.TwitterTrend, error) {
 	twitter_trends := []*model.TwitterTrend{}
-	r := ttp.conn.Find(&twitter_trends)
+	r := ttp.conn.
+		Order("created_at desc").
+		Order("rank").
+		Limit(50).
+		Find(&twitter_trends)
 	if r.Error != nil {
 		return twitter_trends, errors.New("twitter trends are not found")
 	}
